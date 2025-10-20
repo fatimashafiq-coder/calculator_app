@@ -3,7 +3,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* instead of fixed 110vh */
+  min-height: 100vh; 
   font-family: 'Poppins', sans-serif;
   padding: 10px;
 }
@@ -12,7 +12,7 @@ body {
   display: flex;
   gap: 20px;
   align-items: flex-start;
-  flex-wrap: wrap; /* so it adjusts on smaller screens */
+  flex-wrap: wrap; 
   justify-content: center;
 }
 
@@ -22,7 +22,7 @@ section {
   border-radius: 25px;
   box-shadow: 0 0 20px rgba(255, 165, 0, 0.1);
   width: 100%;
-  max-width: 350px; /* responsive width */
+  max-width: 350px; 
   display: flex;
   flex-direction: column;
 }
