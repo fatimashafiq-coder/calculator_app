@@ -3,8 +3,17 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 110vh;
+  min-height: 100vh; /* instead of fixed 110vh */
   font-family: 'Poppins', sans-serif;
+  padding: 10px;
+}
+
+.main-container {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  flex-wrap: wrap; /* so it adjusts on smaller screens */
+  justify-content: center;
 }
 
 section {
@@ -12,15 +21,10 @@ section {
   padding: 20px;
   border-radius: 25px;
   box-shadow: 0 0 20px rgba(255, 165, 0, 0.1);
-  width: 350px;
+  width: 100%;
+  max-width: 350px; /* responsive width */
   display: flex;
   flex-direction: column;
-}
-
-.main-container {
-  display: flex;
-  gap: 20px;
-  align-items: flex-start;
 }
 
 .calculator-section {
@@ -32,11 +36,11 @@ section {
   height: 60px;
   background-color: #1b1b1b;
   color: #fff;
-  font-size: 2.2rem;
+  font-size: 2rem;
   text-align: right;
   border: none;
   outline: none;
-     padding: 2px;
+  padding: 8px 4px;
   border-radius: 15px;
   margin-bottom: 20px;
   box-shadow: inset 0 0 6px rgba(255, 165, 0, 0.2);
@@ -45,17 +49,20 @@ section {
 .button {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap; 
+  gap: 8px;
   margin: 8px 0;
 }
 
 button {
-  width: 70px;
+  flex: 1 1 22%; 
+  min-width: 60px;
   height: 60px;
   border: none;
   border-radius: 18px;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 500;
-  color: #fff;
+  color: #ffffff;
   background-color: #2a2a2a;
   cursor: pointer;
   transition: 0.2s ease;
@@ -72,6 +79,7 @@ button {
   color: #000;
   font-weight: bold;
 }
+
 .equal {
   background-color: #ff9900;
   color: #000;
@@ -83,15 +91,17 @@ button {
   background-color: #1a1a1a;
   border-radius: 10px;
   padding: 10px;
-  max-height: 150px;
+  max-height: 500px;
   overflow-y: auto;
+  width: 100%;
+  max-width: 300px;
 }
 
 #history-container h3 {
   color: #ffb84d;
   margin-bottom: 10px;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 15px;
 }
 
 #history p {
@@ -101,4 +111,22 @@ button {
   text-align: right;
   border-bottom: 1px solid #333;
   padding-bottom: 3px;
+}
+
+.history_clear,
+.restore {
+  background-color: #ff9900;
+  margin-top: 15px;
+  font-size: 15px;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+  color: #000;
+  cursor: pointer;
+  width: 48%;
+}
+
+.history_clear:hover,
+.restore:hover {
+  background-color: #e68a00;
 }
