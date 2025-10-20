@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <title>Calculator</title>
+</head>
+
+<body>
+  <div class="main-container">
+    <section>
+      <div>
+        <input id="display" type="text" readonly>
+      </div>
+
+      <div class="button">
+        <button class="control">AC</button>
+        <button class="control">Del</button>
+        <button class="operator">/</button>
+        <button class="operator">*</button>
+      </div>
+
+      <div class="button">
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button class="operator">-</button>
+      </div>
+
+      <div class="button">
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button class="operator">+</button>
+      </div>
+
+      <div class="button">
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button class="operator">%</button>
+      </div>
+
+      <div class="button">
+        <button class="operator">√</button>
+        <button>0</button>
+        <button class="operator">.</button>
+        <button class="operator">^</button>
+      </div>
+
+      <div class="button">
+        <button class="operator">π</button>
+        <button class="operator">(</button>
+        <button class="operator">)</button>
+        <button class="operator">e</button>
+      </div>
+
+      <div class="button">
+        <button class="operator">sin(</button>
+        <button class="operator">cos(</button>
+        <button class="operator">tan(</button>
+        <button class="equal">=</button>
+      </div>
+    </section>
+
+    <div id="history-container">
+      <h3>history</h3>
+      <div id="history"></div>
+    </div>
+  </div>
+</body>
+
+</html>
