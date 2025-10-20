@@ -1,4 +1,4 @@
-Project name: Responsive Scientific Calculator
+Project name: Scientific Calculator
 Features:
 Basic arithmetic operations like as +,-,*,/,%
 Advanced functions such as sin, cos, tan, sqaureroot, power, pi and e.
