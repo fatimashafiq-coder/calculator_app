@@ -22,7 +22,6 @@ buttons.forEach(button => {
       display.value = display.value.slice(0, display.value.length - 1);
     }
     else if (value == "Clear") {
-      history = [];
       historyDiv.innerHTML = "";
       display.value = "";
     }
@@ -36,7 +35,6 @@ buttons.forEach(button => {
     else if (value === "=") {
       try {
         let userInput = display.value;
-
         let expression = display.value;
         expression = expression.replace(/sin/g, 'Math.sin');
         expression = expression.replace(/cos/g, 'Math.cos');
