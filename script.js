@@ -48,47 +48,42 @@ buttons.forEach(button => {
         alert("No history to restore!");
       }
     }
-    else if (value === "=") {
+
+        else if (value === "=") {
       try {
         let userInput = display.value;
         let expression = display.value;
 
-        if (!/^[0-9+\-*/^().πe√\sA-Za-z]+$/.test(expression)) {
+        if (!/^[0-9+\-*/^().π%e√\sA-Za-z]+$/.test(expression)) {
           display.value = "Invalid Input";
           return;
         }
-        expression = expression.replace(/sin/g, 'Math.sin');
-        expression = expression.replace(/cos/g, 'Math.cos');
-        expression = expression.replace(/tan/g, 'Math.tan');
-        expression = expression.replace(/√/g, 'Math.sqrt');
-        expression = expression.replace(/\^/g, '**');
-        expression = expression.replace(/π/g, 'Math.PI');
-        expression = expression.replace(/e/g, 'Math.E');
 
-        expression = expression.replace(/(\d+|\))(?=Math)/g, '$1*');
-        expression = expression.replace(/(Math\.E)(Math\.E)/g, '$1*$2');
-        expression = expression.replace(/(Math\.PI)(Math\.PI)/g, '$1*$2');
-        expression = expression.replace(/(Math\.E)(Math\.PI)/g, '$1*$2');
-        expression = expression.replace(/(Math\.PI)(Math\.E)/g, '$1*$2');
-        expression = expression.replace(/(\d+)(Math\.)/g, '$1*$2');
-
-        expression = expression.replace(/(\d+|\))(\()/g, '$1*$2');
-        expression = expression.replace(/Math\.sqrt(\d+(?:\.\d+)?)/g, 'Math.sqrt($1)');
+      
+        expression = expression.replace(/√(\d+)/g, 'sqrt($1)');
+        expression = expression.replace(/π/g, 'pi');
+        expression = expression.replace(/(pi)(e)/g, '$1*$2');
+        expression = expression.replace(/(e)(pi)/g, '$1*$2');
+         expression = expression.replace(/(e)(e)/g, '$1*$2');
+          expression = expression.replace(/(pi)(pi)/g, '$1*$2');
 
         let openBrackets = (expression.match(/\(/g) || []).length;
         let closeBrackets = (expression.match(/\)/g) || []).length;
         if (openBrackets > closeBrackets) {
           expression += ')'.repeat(openBrackets - closeBrackets);
         }
-        let result = new Function('return ' + expression)();
+
+        let result = math.evaluate(expression);
         result = parseFloat(result.toFixed(4));
         display.value = result;
+
         if (!isFinite(result)) {
           display.value = "Error";
           return;
         }
+
         const historyItem = userInput + " = " + result;
-        history.push(historyItem);
+        history.unshift(historyItem);
         updateHistory();
       }
       catch (error) {
@@ -117,7 +112,6 @@ display.addEventListener("keydown", (event) => {
       if (button.textContent === "=") button.click();
     });
   }
-
   else if (!allowedKeys.includes(event.key)) {
     event.preventDefault();
   }
